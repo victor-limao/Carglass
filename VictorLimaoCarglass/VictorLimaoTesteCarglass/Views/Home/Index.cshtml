@@ -1,0 +1,30 @@
+﻿<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/Content/cssprojeto.css">
+<div class="container">
+    <h3>Olá, prazer Victor Limão.</h3>
+    <h4>Queria agradecer primeiramente pela oportunidade de poder mostrar meu trabalho.</h4>
+
+    <p>Esse Mini-Projeto faz parte do Teste solicitado pelo Bruno de Stefani para a <a href="https://www.carglass.com.br/" target="_blank">Carglass</a>.</p><br />
+    <p>O projeto foi dividido nas seguintes tabelas:</p>
+    <ul>
+        <li>Empresas;
+            <ul><li>Campos: Id, UF, NomeFantasia, CNPJ, DataCadastro, Maioridade.</li></ul>
+        </li>
+    
+        <li>
+            Fornecedores;
+            <ul><li>Campos: Id, Empresa, NomeFornecedor, CPFCNPJ, DataCadastro, Telefone, SecurityHash.</li></ul>
+        </li>
+        <li>
+            FornecedoresPF (Fornecedores de pessoa física).
+            <ul><li>Campos: Id, RG, DataNascimento, SecurityHash, CPF.</li></ul>
+        </li>
+    </ul><br />
+
+    <p>Regras:</p>
+    <ul>
+        <li> Caso um fornecedor de pessoa física dos estados: MG, MS e RJ tentar ser cadastrado no banco, terá a necessidade de ser maior ou igual a 18 anos;</li>
+        <li> Ao ser cadastrado em pessoa físca, terá que cadastrar o RG e Data de Nasc;</li>
+        <li> Possível filtrar /ListaFornecedores por Nome, CPF/CNPJ e Data de Cadastro.</li>
+    </ul>
+</div>

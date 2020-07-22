@@ -1,0 +1,110 @@
+﻿<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/Content/cssprojeto.css">
+<div>
+    <h3>@ViewBag.Message</h3>
+    <form action="@Url.Action("CadastroFornecedor","Home")">
+        <button class="mt btnincluir" id="btnincluir" type="submit">Incluir +</button>
+    </form>
+   
+    <input type="text" id="txtfiltro" class="txtfitro" name="txtfiltro" placeholder="Nome, CPF/CNPJ, Data Cadastro" />
+    <table id="tablelista" class="table table-striped">
+        <thead>
+            <tr>
+                <th style="border-top-left-radius: 10px;">Empresa</th>
+                <th>Nome Fornecedor</th>
+                <th>CPF/CNPJ</th>
+                <th>Telefone</th>
+                <th style="border-top-right-radius: 10px;">Data Cadastro</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var empresas in ViewBag.Fornecedores)
+            {
+                <tr>
+                    <td>
+                        @empresas.Empresa
+                    </td>
+                    <td>
+                        @empresas.NomeFornecedor
+                    </td>
+                    <td>
+                        @empresas.CPFCNPJ
+                    </td>
+                    <td>
+                        @empresas.Telefone
+                    </td>
+                    <td>
+                        @empresas.DataCadastro
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script>
+
+
+$("#txtfiltro").keyup(function () {
+    var filtro = this.value;
+    $.ajax({
+            method: "Post",
+             url: "@Url.Action("JsonLista", "Home")",
+             data: { filtro: filtro },
+            beforeSend: function () {
+            },
+        success: function (data) {
+                 var table = $('#tablelista tbody');
+                console.log(data.success.length);
+                table.empty();
+
+            for (i = 0; i < data.success.length; i++) {
+                    table.append(criar_linha_grid(data.success));
+                    console.log(data.success.length);
+                    console.log("passou " + parseFloat(i+1) + " vezes");
+                }
+            },
+            error: function (data) { alert("Não há dados para esse filtro.") }
+
+    });
+
+});
+
+    function criar_linha_grid(data) {
+        var newHtml = "";
+        for (i = 0; i < data.length; i++) {
+            var date = new Date(parseInt(data[i].DataCadastro.substr(6)));
+            var day = date.getDate();
+            var hour = date.getHours();
+            if (hour < 10) {
+                hour = "0" + hour;
+            }
+           
+            var minute = date.getMinutes();
+             if (minute < 10) {
+                minute = "0" + minute;
+            }
+            var second = date.getSeconds();
+              if (second < 10) {
+                second = "0" + second;
+            }
+            console.log(date);
+            console.log(hour +"hour, "+minute+"minute, "+second+"second");
+            var month = parseFloat(date.getUTCMonth() + 1);
+            if (month < 10) {
+                month = "0" + month;
+            }
+            var year = date.getFullYear();
+            var dateconverted = day + "/" + month + "/" + year +" "+hour+":"+minute+":"+second;
+            console.log(day + "/" + month + "/" + year);
+            newHtml += '<tr>';
+            newHtml += '<td >'+ data[i].Empresa +' </td>';
+            newHtml += '<td >'+ data[i].NomeFornecedor +' </td>';
+            newHtml += '<td >'+ data[i].CPFCNPJ +' </td>';
+            newHtml += '<td >'+ data[i].Telefone +' </td>';
+            newHtml += '<td >' + dateconverted + '</td>';
+        }
+        $("#tablelista tbody").html(newHtml);
+
+    }
+</script>

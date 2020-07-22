@@ -1,0 +1,116 @@
+﻿.formfornecedor {
+    height: 30px;
+    width: 100%;
+    margin-left: auto;
+}
+
+.inputsfornecedor {
+    height: 30px;
+    width: 50%;
+}
+.liheader {
+    color: liheader;
+}
+
+
+.navbar-inverse .navbar-nav > li > a{
+    color: white;
+}
+
+.content {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formspace {
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+.absolute {
+    position: absolute;
+    margin-left: -580px;
+    width: 71.6%;
+}
+
+.mt {
+    margin-top: 10px;
+    margin-left: 0px;
+}
+
+#telefone {
+    margin-left: 0px;
+}
+
+p, h3, h4, input, button {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+.btncadastro {
+    border-radius: 15px;
+    border: none;
+    background-color: #ffb366;
+    color: #333;
+    font-weight: bold;
+    width: 10%;
+    height: 40px;
+    
+}
+
+    .btncadastro:hover {
+        border: 2px #555 solid;
+        background-color: #999;
+        color: white;
+      
+    }
+
+img {
+    max-width:100px;
+    width: 100px;
+    margin-top: 4px;
+}
+.lilayout{
+    color:white;
+}
+
+thead {
+    background-color: rgb(217, 219, 217);
+    z-index: -1;
+}
+
+th {
+    z-index: 1;
+    color: #999;
+}
+
+table {
+    width: 100%;
+    height: 100%;
+}
+
+.txtfitro {
+    width: 50%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.btnincluir {
+    border-radius: 15px;
+    border: none;
+    background-color: rgb(13, 247, 36);
+    color: #333;
+    font-weight: bold;
+    width: 8%;
+    height: 30px;
+    margin-right: 10px;
+}
+
+    .btnincluir:hover {
+        border: 2px #555 solid;
+        background-color: #999;
+        color: white;
+    }

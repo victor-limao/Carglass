@@ -1,0 +1,47 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Teste Carglass</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/cssprojeto.css">
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#e33130; border:none">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/"><image class="headerimg" src="../Content/img/logo-cg.png"></image></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Cadastro Empresa", "CadastroEmpresa", "Home", new { @class ="liheader"})</li>
+                    <li>@Html.ActionLink("Lista Empresa", "ListaEmpresas", "Home")</li>
+                    <li>@Html.ActionLink("Cadastro Fornecedor", "CadastroFornecedor", "Home")</li>
+                    <li>@Html.ActionLink("Lista Fornecedor", "ListaFornecedores", "Home")</li">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Victor Limão ASP.NET Developer &copy;</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

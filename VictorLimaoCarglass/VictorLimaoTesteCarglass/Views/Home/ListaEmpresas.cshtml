@@ -1,0 +1,31 @@
+﻿<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/Content/cssprojeto.css">
+
+<div>
+    <h3>@ViewBag.Message</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="border-top-left-radius: 10px;">UF</th>
+                <th>Nome Fantasia</th>
+                <th style="border-top-right-radius: 10px;">CNPJ</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var empresas in ViewBag.Empresas)
+            {
+                <tr>
+                    <td>
+                        @empresas.UF
+                    </td>
+                    <td>
+                        @empresas.NomeFantasia
+                    </td>
+                    <td>
+                        @empresas.CNPJ
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
